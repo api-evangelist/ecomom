@@ -1,7 +1,30 @@
 aid: ecomom
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ecomom.png
 name: EcoMom
-description: EcoMom is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: EcoMom was surfaced as a portfolio company of 500 Global and added to the API
+  Evangelist network as a stub lead for enrichment. Enrichment probing on 2026-07-20 found no
+  operating company surface behind the ecomom.com domain. The domain's nameservers are
+  ns1/ns2.afternic.com and every request to ecomom.com issues a 307 redirect to an Afternic
+  listing headlined "The domain name ecomom.com is for sale!" with no published price. The host
+  serves a wildcard soft-200 parking page - arbitrary paths, including a deliberately nonsense
+  control path, all return HTTP 200 with text/html that redirects to /lander - so the 200 status
+  codes returned for /.well-known/security.txt, /.well-known/openid-configuration,
+  /.well-known/oauth-authorization-server, /.well-known/api-catalog, /.well-known/ai-plugin.json,
+  /llms.txt and /openapi.json are parking artifacts and not real documents. The api, developer,
+  docs and www subdomains resolve to the same two parking IPs. There is no developer portal, no
+  documentation, no specification and no API surface to catalog, so no enrichment artifacts were
+  written for this company.
 url: https://raw.githubusercontent.com/api-evangelist/ecomom/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,11 +32,22 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: defunct
+x-status-evidence: ecomom.com redirects (307) to an Afternic domain-for-sale listing; wildcard
+  soft-200 parking confirmed by a nonsense control path also returning 200 text/html; probed
+  2026-07-20
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Venture Backed
+- 500 Global
+- Portfolio Lead
+- Defunct
+- No API Surface
+- Domain For Sale
+- E-Commerce
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +55,13 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
-- type: Website
-  url: https://ecomom.com
+- type: DomainForSale
+  url: https://www.afternic.com/forsale/ecomom.com
+x-enrichment:
+  date: '2026-07-20'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
+  notes: No API surface. Domain parked and listed for sale; all /.well-known, /llms.txt and
+    /openapi.json 200s are wildcard parking soft-200s, not real documents. No artifacts written
+    to avoid fabrication.
