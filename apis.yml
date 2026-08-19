@@ -36,7 +36,7 @@ x-status: defunct
 x-status-evidence: ecomom.com redirects (307) to an Afternic domain-for-sale listing; wildcard
   soft-200 parking confirmed by a nonsense control path also returning 200 text/html; probed
   2026-07-20
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
